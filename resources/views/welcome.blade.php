@@ -3,7 +3,29 @@
 @section('content')
 
 <div class="container py-5 vh-100">
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum quidem aspernatur nobis earum deleniti corrupti repellendus! Obcaecati a officia doloribus similique. Sequi, repellendus nam? Dolor veritatis ut quos consequatur vitae dolorem earum suscipit error nihil, itaque fuga illo nulla, laudantium alias atque vel quaerat unde nostrum repudiandae non ipsam soluta quisquam in. Itaque omnis quibusdam nobis harum eveniet, atque tempore nemo fugiat est natus aspernatur ea repellendus nostrum laboriosam vel qui deserunt quasi laudantium autem distinctio blanditiis dignissimos hic suscipit? Veniam soluta quas harum libero esse eveniet ea molestiae ex? Corporis qui maiores, ex aliquam placeat harum aspernatur mollitia, dicta adipisci doloribus in similique natus autem repellat, sit quae reprehenderit dolorum voluptatum perferendis! Expedita nisi libero similique maxime aliquid, autem vitae inventore veritatis, suscipit dicta nobis officia dolorem. Quo hic nesciunt dolores aspernatur dicta. Molestias odio quia repellendus temporibus alias! Alias omnis unde, voluptatem delectus necessitatibus ullam aut dolor! Voluptates, neque ea. Est neque aperiam laudantium ex inventore non, porro repudiandae deleniti quia enim modi quisquam dolore temporibus, dicta quasi distinctio nesciunt! Voluptatem ipsa eligendi veritatis libero, sequi beatae mollitia sapiente ut harum! Atque earum magnam illum id animi sint eius quaerat rerum labore repudiandae, fugiat debitis exercitationem, ab culpa blanditiis mollitia perspiciatis fugit corrupti beatae voluptas sequi ullam molestias suscipit. Ipsam suscipit dolores eius adipisci, enim cumque numquam accusantium eligendi laborum, dignissimos dolore tempore est sunt! Minima consequuntur hic molestiae asperiores, eaque nobis mollitia sit nam deserunt eum aliquam ratione odio quibusdam vel nihil enim praesentium, dolore aperiam quaerat id, commodi cupiditate? Id quam inventore eaque illo unde vitae, accusamus distinctio nemo, nihil eligendi asperiores dignissimos magni dolore, quaerat neque. Laborum dolore quisquam nam unde odit, molestias obcaecati distinctio quos ut maiores? Enim consectetur molestiae quibusdam minus adipisci modi consequuntur iure, harum dicta, iusto eos minima accusantium recusandae, mollitia tempore natus. Earum dolor molestias molestiae autem cumque omnis, unde eligendi pariatur nesciunt. Error voluptas ducimus minus aperiam non illum nulla necessitatibus quis nobis veniam maiores hic cumque laudantium voluptatem architecto corrupti nostrum doloremque, reiciendis beatae sed. Autem, voluptatibus at molestias culpa cumque eum, officia quisquam quas velit magni rem possimus vero eaque! Dicta dolorem corrupti maiores? Perferendis ex maiores dignissimos adipisci aperiam magnam ipsum numquam, possimus est nisi molestias consectetur, ad, voluptatem fuga unde facilis mollitia suscipit itaque eius saepe nulla? Maxime soluta autem at delectus odio aliquam quis debitis maiores molestiae doloribus eveniet, officiis velit amet vitae iste reprehenderit sed hic perspiciatis pariatur dolorum cumque iure error enim quaerat! Distinctio labore molestiae itaque asperiores dolorum minus aut numquam culpa. Maiores ad blanditiis odit quibusdam molestias, vel obcaecati! Nisi voluptatibus quo tempora labore obcaecati adipisci rerum optio ratione laudantium excepturi. Incidunt, voluptate, quis ipsum porro sunt saepe atque ipsa eligendi in maxime cumque eos facilis reiciendis enim. Architecto quasi neque fugiat ipsa deserunt repudiandae distinctio fugit reprehenderit libero maxime vel eligendi, eveniet mollitia reiciendis illo voluptas recusandae saepe ut, aut, sed beatae iure pariatur laudantium minima! Maiores quia adipisci deserunt unde illum accusamus nulla, quam, pariatur temporibus quibusdam soluta?</p>
+    <div class="row">
+        @forelse($trains as $train)
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">{{$train->company}}</h4>
+                    <p class="card-text">Departure from: {{$train->departure_station}}</p>
+                    <p class="card-text">Arrival at: {{$train->arrival_station}}</p>
+                    <p class="card-text">Departure time: {{$train->departure_time}}</p>
+                    <p class="card-text">Arrival time: {{$train->arrival_time}}</p>
+                    <p class="card-text">Train code: {{$train->train_code}}</p>
+                    <p class="card-text">Train carriages: {{$train->train_carriage}}</p>
+
+                    <!-- TODO: gestire caso in cui il treno sia in cancellato o in ritardo -->
+                </div>
+            </div>
+        </div>
+        @empty
+        <div class="col">
+            <p>We're sorry, there are no trains yet!</p>
+        </div>
+        @endforelse
+    </div>
 </div>
 
 @endsection
